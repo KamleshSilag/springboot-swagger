@@ -1,8 +1,19 @@
 package com.kamlesh.springbootswagger2.models;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Details about the Contact")
 public class Contact {
 
-    private String id, name, phone;
+    @ApiModelProperty(notes = "The unique id of the contact")
+    private String id;
+
+    @ApiModelProperty(notes = "The person's name")
+    private String name;
+
+    @ApiModelProperty(notes = "The person's phone number")
+    private String phone;
 
     public String getId() {
         return id;

@@ -8,16 +8,17 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
+@RequestMapping("/api")
 public class AddressBookResource {
 
     ConcurrentHashMap<String, Contact> contacts = new ConcurrentHashMap<String, Contact>();
 
-    @RequestMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Contact getContact(@PathVariable String id){
         return contacts.get(id);
     }
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     public List<Contact> getAllContacts(){
         return new ArrayList<Contact>(contacts.values());
     }
